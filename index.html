@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>孙燕姿《就在日落以后》广州站 · 票价曲线</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;margin:0;min-height:100vh;color:#fdf6ec;
+ background:linear-gradient(180deg,rgba(38,20,48,.82) 0%,rgba(74,35,58,.86) 40%,rgba(140,70,50,.88) 75%,rgba(30,16,36,.92) 100%),
+ url('https://img2.tking.cn/mtl/default/img/2026/8/24/A6BA7YjYhh_.jpg?x-oss-process=image/resize,w_1600/quality,q_80') center/cover fixed no-repeat}
+.wrap{max-width:560px;margin:0 auto;padding:16px 12px 32px}
+.hero{display:flex;gap:14px;align-items:center;background:rgba(20,10,25,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+ border:1px solid rgba(255,200,140,.25);border-radius:18px;padding:14px 16px;margin-bottom:14px;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.hero img{width:72px;height:72px;object-fit:cover;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.45);flex-shrink:0}
+.hero h1{font-size:16px;margin:0 0 4px;letter-spacing:.5px;text-shadow:0 2px 10px rgba(0,0,0,.5);line-height:1.4}
+.hero h1 span{color:#ffd569}
+.hero .sub{font-size:11px;color:#ffe8c9;opacity:.85;line-height:1.6}
+.tag{display:inline-block;font-size:10px;color:#2b1a10;background:linear-gradient(90deg,#ffd569,#ff9e5f);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:1px;font-weight:bold}
+.sec{background:rgba(20,10,25,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+ border:1px solid rgba(255,200,140,.22);border-radius:18px;padding:12px;margin-bottom:14px;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.lab{font-size:11px;color:#ffe8c9;opacity:.75;margin:2px 0 6px;letter-spacing:1px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:1px}
+.chip{font-size:13px;color:rgba(255,232,201,.55);background:rgba(255,220,170,.06);border:1px solid rgba(255,200,140,.22);
+ border-radius:999px;padding:7px 14px;cursor:pointer;user-select:none;transition:all .15s}
+.chip:active{transform:scale(.94)}
+.chip.on{color:#fff7e8;font-weight:bold;background:linear-gradient(90deg,#ff8a50,#ff5e78);border-color:rgba(255,255,255,.35);box-shadow:0 2px 12px rgba(255,94,120,.45)}
+.chip.on .dot{box-shadow:0 0 4px #fff}
+.seg{display:flex;background:rgba(255,220,170,.10);border:1px solid rgba(255,200,140,.35);border-radius:12px;overflow:hidden}
+.seg .chip{flex:1;border:none;border-radius:0;text-align:center;background:transparent}
+.seg .chip.on{border-radius:10px;margin:3px;padding:5px 0;color:#fff7e8}
+.chbox{position:relative;width:100%;height:320px}
+.chbox svg{width:100%;height:100%;display:block}
+.tip{position:absolute;pointer-events:none;display:none;background:rgba(30,16,36,.95);border:1px solid rgba(255,200,140,.5);
+ border-radius:10px;padding:8px 10px;font-size:12px;color:#fdf6ec;white-space:nowrap;z-index:5;line-height:1.7;transform:translate(-50%,-115%)}
+.tip b{color:#ffd569}
+.stat{display:flex;gap:10px;margin-bottom:14px}
+.pill{flex:1;background:rgba(20,10,25,.5);backdrop-filter:blur(10px);border:1px solid rgba(255,200,140,.22);border-radius:14px;padding:10px 8px;text-align:center}
+.pill .lab2{font-size:11px;color:#ffe8c9;opacity:.8}
+.pill .val{font-size:19px;font-weight:bold;color:#ffd569;margin-top:3px;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.foot{font-size:11px;color:#ffe8c9;opacity:.7;text-align:center;line-height:1.9;padding:0 8px}
+.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ffe8c9;opacity:.8;font-size:13px}
+.legend{display:flex;gap:14px;justify-content:center;font-size:11px;color:#ffe8c9;opacity:.85;margin-bottom:6px}
+.legend i{font-style:normal}
+.ln{display:inline-block;width:18px;height:0;border-top:2px solid #ffd569;vertical-align:3px;margin-right:4px}
+.ln.d{border-top-style:dashed;border-top-color:#ff8c69}
+</style></head><body>
+<div class="wrap">
+ <div class="hero">
+  <img src="https://img2.tking.cn/mtl/default/img/2026/8/24/A6BA7YjYhh_.jpg?x-oss-process=image/resize,w_300/quality,q_80" alt="海报">
+  <div>
+   <h1>孙燕姿《就在日落以后》<span>广州站</span><span class="tag">AUT NIHILO</span></h1>
+   <div class="sub">2026.12.04 周五 · 2026.12.06 周日 19:00<br>广东省奥林匹克体育中心体育场 · 二级市场票价监控</div>
+  </div>
+ </div>
+ <div class="sec">
+  <div class="lab">演出日期</div>
+  <div class="seg" id="segDate"></div>
+  <div class="lab" style="margin-top:12px">平台</div>
+  <div class="chips" id="chipsPlat"></div>
+  <div class="lab" style="margin-top:12px">票档 <span style="opacity:.6">(可多选/点选切换)</span></div>
+  <div class="chips" id="chipsTier"></div>
+ </div>
+ <div class="stat" id="stat"></div>
+ <div class="sec" style="position:relative">
+  <div class="legend"><i><span class="ln"></span>票牛(实线)</i><i><span class="ln d"></span>摩天轮(虚线)</i></div>
+  <div class="chbox" id="chart"></div>
+  <div class="tip" id="tip"></div>
+ </div>
+ <div class="foot">数据来源：票牛 piaoniu.com · 摩天轮 motianlun.cn（各档实时挂牌最低价，随供需波动，仅供参考）<br>
+  每日 10:00 / 13:00 / 17:00 自动采集，历史数据点永久保留 · 点按圆点显示数值，点其他位置关闭</div>
+</div>
+<script>
+var DATA=[{"platform": "摩天轮", "session": "2026.12.04", "tier": "1380元档", "points": [["2026-11-10 17:03", 3889.0]]}, {"platform": "摩天轮", "session": "2026.12.04", "tier": "1680元档", "points": [["2026-11-10 17:03", 4888.0]]}, {"platform": "摩天轮", "session": "2026.12.04", "tier": "680元档", "points": [["2026-11-10 17:03", 2933.0]]}, {"platform": "摩天轮", "session": "2026.12.04", "tier": "980元档", "points": [["2026-11-10 17:03", 3286.0]]}, {"platform": "摩天轮", "session": "2026.12.04", "tier": "全场最低价(旧口径)", "points": [["2026-11-10 16:45", 2933.0], ["2026-11-10 17:00", 2933.0]]}, {"platform": "摩天轮", "session": "2026.12.04", "tier": "选座最低价(旧口径)", "points": [["2026-11-10 16:45", 3778.0], ["2026-11-10 17:00", 3778.0]]}, {"platform": "摩天轮", "session": "2026.12.06", "tier": "1380元档", "points": [["2026-11-10 17:03", 5495.0]]}, {"platform": "摩天轮", "session": "2026.12.06", "tier": "1680元档", "points": [["2026-11-10 17:03", 7148.0]]}, {"platform": "摩天轮", "session": "2026.12.06", "tier": "980元档", "points": [["2026-11-10 17:03", 4617.0]]}, {"platform": "摩天轮", "session": "2026.12.06", "tier": "全场最低价(旧口径)", "points": [["2026-11-10 16:45", 4617.0], ["2026-11-10 17:00", 4617.0]]}, {"platform": "摩天轮", "session": "2026.12.06", "tier": "选座最低价(旧口径)", "points": [["2026-11-10 16:45", 5223.0], ["2026-11-10 17:00", 5223.0]]}, {"platform": "票牛", "session": "2026.12.04", "tier": "1380元档", "points": [["2026-11-10 16:45", 3891.0], ["2026-11-10 17:00", 3891.0], ["2026-11-10 17:03", 3891.0]]}, {"platform": "票牛", "session": "2026.12.04", "tier": "1680元档", "points": [["2026-11-10 16:45", 5047.0], ["2026-11-10 17:00", 5044.0], ["2026-11-10 17:03", 5044.0]]}, {"platform": "票牛", "session": "2026.12.04", "tier": "480元档", "points": [["2026-11-10 16:45", 3178.0], ["2026-11-10 17:00", 3178.0], ["2026-11-10 17:03", 3179.0]]}, {"platform": "票牛", "session": "2026.12.04", "tier": "680元档", "points": [["2026-11-10 16:45", 2937.0], ["2026-11-10 17:00", 2937.0], ["2026-11-10 17:03", 2934.0]]}, {"platform": "票牛", "session": "2026.12.04", "tier": "980元档", "points": [["2026-11-10 16:45", 3299.0], ["2026-11-10 17:00", 3289.0], ["2026-11-10 17:03", 3290.0]]}, {"platform": "票牛", "session": "2026.12.06", "tier": "1380元档", "points": [["2026-11-10 16:45", 4950.0], ["2026-11-10 17:00", 4950.0], ["2026-11-10 17:03", 4950.0]]}, {"platform": "票牛", "session": "2026.12.06", "tier": "1680元档", "points": [["2026-11-10 16:45", 7150.0], ["2026-11-10 17:00", 7150.0], ["2026-11-10 17:03", 7150.0]]}, {"platform": "票牛", "session": "2026.12.06", "tier": "480元档", "points": [["2026-11-10 16:45", 5205.0], ["2026-11-10 17:00", 5214.0], ["2026-11-10 17:03", 5207.0]]}, {"platform": "票牛", "session": "2026.12.06", "tier": "680元档", "points": [["2026-11-10 16:45", 4400.0], ["2026-11-10 17:00", 4400.0], ["2026-11-10 17:03", 4400.0]]}, {"platform": "票牛", "session": "2026.12.06", "tier": "980元档", "points": [["2026-11-10 16:45", 4620.0], ["2026-11-10 17:00", 4620.0], ["2026-11-10 17:03", 4620.0]]}];
+var TIER_COLORS={'480元档':'#7ec8e3','680元档':'#8ab6ff','980元档':'#a79bff','1380元档':'#c9a1ff','1680元档':'#e0a1ff',
+ '全场最低价(旧口径)':'#ffb347','选座最低价(旧口径)':'#ff8c69','最低价':'#ffb347','选座最低价':'#ff8c69'};
+var TIER_NAMES={'480元档':'480','680元档':'680','980元档':'980','1380元档':'1380','1680元档':'1680'};
+function tierName(t){return TIER_NAMES[t]||(t.indexOf('旧口径')>=0?t.replace('(旧口径)','·旧'):t);}
+function tierColor(t){return TIER_COLORS[t]||'#ffd569';}
+var state={date:'2026.12.04',plat:'全部',tiers:{}};
+var tierOrder=['480元档','680元档','980元档','1380元档','1680元档'];
+DATA.forEach(function(s){if(tierOrder.indexOf(s.tier)<0)tierOrder.push(s.tier);});
+tierOrder.forEach(function(t){state.tiers[t]=true;});
+function el(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function renderDate(){var h='';[['2026.12.04','12.04 周五'],['2026.12.06','12.06 周日']].forEach(function(d){
+ h+='<div class="chip'+(state.date===d[0]?' on':'')+'" data-d="'+d[0]+'">'+d[1]+'</div>';});el('segDate').innerHTML=h;}
+function renderPlat(){var h='';['全部','票牛','摩天轮'].forEach(function(p){
+ h+='<div class="chip'+(state.plat===p?' on':'')+'" data-p="'+p+'">'+p+'</div>';});el('chipsPlat').innerHTML=h;}
+function renderTier(){var h='';tierOrder.forEach(function(t){
+ h+='<div class="chip'+(state.tiers[t]?' on':'')+'" data-t="'+esc(t)+'"><span class="dot" style="background:'+tierColor(t)+'"></span>'+tierName(t)+'</div>';});el('chipsTier').innerHTML=h;}
+function visibleSeries(){return DATA.filter(function(s){
+ return s.session===state.date&&(state.plat==='全部'||s.platform===state.plat)&&state.tiers[s.tier];});}
+function latest(legs,plat,tier){for(var i=0;i<legs.length;i++){if(legs[i].platform===plat&&legs[i].tier===tier){var p=legs[i].points;return p[p.length-1][1];}}return null;}
+function statHtml(legs){
+ var tiers=tierOrder.filter(function(t){return state.tiers[t];});
+ var lo=null,hi=null,pnlo=null,mv=null;
+ tiers.forEach(function(t){var v=latest(legs,'票牛',t);if(v!=null){if(pnlo==null||v<pnlo)pnlo=v;if(lo==null||v<lo)lo=v;if(hi==null||v>hi)hi=v;}
+  var m=latest(legs,'摩天轮',t);if(m!=null){if(mv==null||m<mv)mv=m;if(lo==null||m<lo)lo=m;}});
+ return '<div class="pill"><div class="lab2">当前筛选最低</div><div class="val">'+(lo!=null?'¥'+lo:'-')+'</div></div>'
+ +'<div class="pill"><div class="lab2">票牛最低</div><div class="val">'+(pnlo!=null?'¥'+pnlo:'-')+'</div></div>'
+ +'<div class="pill"><div class="lab2">摩天轮最低</div><div class="val">'+(mv!=null?'¥'+mv:'-')+'</div></div>';}
+function parseT(s){return new Date(s.replace(' ','T')).getTime();}
+function fmtT(ms,sameDay){var d=new Date(ms);function p2(n){return (n<10?'0':'')+n;}
+ return sameDay?(p2(d.getHours())+':'+p2(d.getMinutes())):(p2(d.getMonth()+1)+'-'+p2(d.getDate())+' '+p2(d.getHours())+':'+p2(d.getMinutes()));}
+function niceStep(span,n){var raw=span/n,mag=Math.pow(10,Math.floor(Math.log(raw)/Math.LN10)),norm=raw/mag;
+ var step=norm<1.5?1:norm<3?2:norm<7?5:10;return step*mag;}
+var allPts=[];
+function draw(){
+ var legs=visibleSeries();
+ el('stat').innerHTML=statHtml(legs);
+ var box=el('chart');
+ if(!legs.length){box.innerHTML='<div class="empty">当前筛选条件下暂无数据</div>';allPts=[];return;}
+ var series=[];
+ var tmin=Infinity,tmax=-Infinity,vmin=Infinity,vmax=-Infinity;
+ legs.forEach(function(l){
+  var pts=l.points.slice().sort(function(a,b){return parseT(a[0])-parseT(b[0]);})
+   .map(function(p){return {t:parseT(p[0]),v:p[1]};});
+  pts.forEach(function(p){if(p.t<tmin)tmin=p.t;if(p.t>tmax)tmax=p.t;if(p.v<vmin)vmin=p.v;if(p.v>vmax)vmax=p.v;});
+  series.push({name:l.platform+' '+tierName(l.tier),plat:l.platform,color:tierColor(l.tier),pts:pts});});
+ if(tmin===tmax){tmax+=60000;}
+ var vpad=Math.max((vmax-vmin)*0.12,10);
+ var ymin=Math.max(0,vmin-vpad),ymax=vmax+vpad;
+ var W=360,H=320,L=46,R=12,T=14,B=30;
+ var pw=W-L-R,ph=H-T-B;
+ function X(t){return L+(t-tmin)/(tmax-tmin)*pw;}
+ function Y(v){return T+ph-(v-ymin)/(ymax-ymin)*ph;}
+ var svgParts=[];
+ var ystep=niceStep(ymax-ymin,4);
+ var y0=Math.ceil(ymin/ystep)*ystep;
+ for(var v=y0;v<=ymax+1e-9;v+=ystep){
+  var y=Y(v);
+  svgParts.push('<line x1="'+L+'" y1="'+y+'" x2="'+(W-R)+'" y2="'+y+'" stroke="rgba(255,232,201,.13)" stroke-width="1"/>');
+  svgParts.push('<text x="'+(L-6)+'" y="'+(y+3.5)+'" text-anchor="end" font-size="9.5" fill="rgba(255,232,201,.75)">¥'+Math.round(v)+'</text>');}
+ var sameDay=new Date(tmin).toDateString()===new Date(tmax).toDateString();
+ for(var i=0;i<4;i++){
+  var t=tmin+(tmax-tmin)*i/3;
+  svgParts.push('<text x="'+X(t)+'" y="'+(H-8)+'" text-anchor="middle" font-size="9.5" fill="rgba(255,232,201,.75)">'+fmtT(t,sameDay)+'</text>');}
+ allPts=[];
+ series.forEach(function(s){
+  var ptsStr=s.pts.map(function(p){var x=X(p.t),y=Y(p.v);allPts.push({x:x,y:y,label:s.name,v:p.v,t:p.t});return x.toFixed(1)+','+y.toFixed(1);}).join(' ');
+  svgParts.push('<polyline points="'+ptsStr+'" fill="none" stroke="'+s.color+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"'+(s.plat==='摩天轮'?' stroke-dasharray="6 4"':'')+'/>');
+  s.pts.forEach(function(p){var x=X(p.t),y=Y(p.v);
+   svgParts.push('<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3.2" fill="'+s.color+'" stroke="#fff" stroke-width="1"/>');});});
+ box.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet">'+svgParts.join('')+'</svg>';}
+function showTip(ev){
+ var tip=el('tip'),box=el('chart');
+ if(!allPts.length){tip.style.display='none';return false;}
+ var r=box.getBoundingClientRect();
+ var cx=(ev.touches?ev.touches[0].clientX:ev.clientX)-r.left;
+ var cy=(ev.touches?ev.touches[0].clientY:ev.clientY)-r.top;
+ var sx=r.width/360,sy=r.height/320;
+ var best=null,bd=1e9;
+ for(var i=0;i<allPts.length;i++){var p=allPts[i];
+  var dx=(p.x-cx/sx),dy=(p.y-cy/sy);var d=dx*dx+dy*dy;
+  if(d<bd){bd=d;best=p;}}
+ if(!best||bd>1200){tip.style.display='none';return false;}
+ tip.innerHTML='<b>'+esc(best.label)+'</b><br>'+fmtT(best.t,false)+'<br>最低价 <b>¥'+best.v+'</b>';
+ tip.style.left=(best.x*sx)+'px';
+ tip.style.top=(best.y*sy)+'px';
+ tip.style.display='block';return true;}
+var cbox=el('chart');
+// 点到数据点 -> 悬浮持续显示; 点空白处/页面其他位置 -> 消失
+cbox.addEventListener('click',function(ev){if(!showTip(ev))el('tip').style.display='none';});
+cbox.addEventListener('touchmove',function(ev){showTip(ev);},{passive:true});
+document.addEventListener('click',function(ev){if(!cbox.contains(ev.target))el('tip').style.display='none';});
+el('segDate').addEventListener('click',function(e){var d=e.target.getAttribute('data-d');if(d){state.date=d;renderDate();draw();}});
+el('chipsPlat').addEventListener('click',function(e){var p=e.target.getAttribute('data-p');if(p){state.plat=p;renderPlat();draw();}});
+el('chipsTier').addEventListener('click',function(e){var t=e.target.getAttribute('data-t');if(t){state.tiers[t]=!state.tiers[t];renderTier();draw();}});
+renderDate();renderPlat();renderTier();draw();
+</script></body></html>
