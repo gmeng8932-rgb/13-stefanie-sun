@@ -111,21 +111,24 @@ function draw(){
  var box=el('chart');
  if(!legs.length){box.innerHTML='<div class="empty">当前筛选条件下暂无数据</div>';allPts=[];return;}
  var series=[];
- var tmin=Infinity,tmax=-Infinity,vmin=Infinity,vmax=-Infinity;
  legs.forEach(function(l){
   var pts=l.points.slice().sort(function(a,b){return parseT(a[0])-parseT(b[0]);})
    .map(function(p){return {t:parseT(p[0]),v:p[1]};});
-  pts.forEach(function(p){if(p.t<tmin)tmin=p.t;if(p.t>tmax)tmax=p.t;if(p.v<vmin)vmin=p.v;if(p.v>vmax)vmax=p.v;});
   series.push({name:l.platform+' '+tierName(l.tier),plat:l.platform,color:tierColor(l.tier),pts:pts});});
- if(tmin===tmax){tmax+=60000;}
- // 两侧留白, 让最左/最右的圆点不贴边、分布均匀好点按
- var tpad=(tmax-tmin)*0.08;
- tmin-=tpad; tmax+=tpad;
+ // x轴改为按"实际出现的时间点"等间距排列：每个数据点之间间距一致, 没有价格的时间不出现
+ var tset={};
+ series.forEach(function(s){s.pts.forEach(function(p){tset[p.t]=1;});});
+ var times=Object.keys(tset).map(Number).sort(function(a,b){return a-b;});
+ var nT=times.length;
+ var tindex={};times.forEach(function(t,i){tindex[t]=i;});
+ var vmin=Infinity,vmax=-Infinity;
+ series.forEach(function(s){s.pts.forEach(function(p){if(p.v<vmin)vmin=p.v;if(p.v>vmax)vmax=p.v;});});
+ if(vmin===vmax){vmin-=10;vmax+=10;}
  var vpad=Math.max((vmax-vmin)*0.12,10);
  var ymin=Math.max(0,vmin-vpad),ymax=vmax+vpad;
  var W=360,H=320,L=46,R=12,T=14,B=30;
  var pw=W-L-R,ph=H-T-B;
- function X(t){return L+(t-tmin)/(tmax-tmin)*pw;}
+ function X(t){return nT===1?L+pw/2:L+tindex[t]/(nT-1)*pw;}
  function Y(v){return T+ph-(v-ymin)/(ymax-ymin)*ph;}
  var svgParts=[];
  var ystep=niceStep(ymax-ymin,4);
@@ -134,10 +137,15 @@ function draw(){
   var y=Y(v);
   svgParts.push('<line x1="'+L+'" y1="'+y+'" x2="'+(W-R)+'" y2="'+y+'" stroke="rgba(255,232,201,.13)" stroke-width="1"/>');
   svgParts.push('<text x="'+(L-6)+'" y="'+(y+3.5)+'" text-anchor="end" font-size="9.5" fill="rgba(255,232,201,.75)">¥'+Math.round(v)+'</text>');}
- var sameDay=new Date(tmin).toDateString()===new Date(tmax).toDateString();
- for(var i=0;i<4;i++){
-  var t=tmin+(tmax-tmin)*i/3;
-  svgParts.push('<text x="'+X(t)+'" y="'+(H-8)+'" text-anchor="middle" font-size="9.5" fill="rgba(255,232,201,.75)">'+fmtT(t,sameDay)+'</text>');}
+ var sameDay=new Date(times[0]).toDateString()===new Date(times[nT-1]).toDateString();
+ // 时间轴只标注有价格的时间点; 太多时隔行抽稀(最多约6个, 首尾必显示)
+ var lblStep=Math.max(1,Math.ceil(nT/6));
+ for(var i=0;i<nT;i++){
+  if(i%lblStep!==0&&i!==nT-1)continue;
+  var t=times[i],an='middle',lx=X(t);
+  if(nT>1&&i===0){an='start';lx=L-12;}
+  else if(nT>1&&i===nT-1){an='end';lx=W-R+12;}
+  svgParts.push('<text x="'+lx+'" y="'+(H-8)+'" text-anchor="'+an+'" font-size="9.5" fill="rgba(255,232,201,.75)">'+fmtT(t,sameDay)+'</text>');}
  allPts=[];
  series.forEach(function(s){
   var ptsStr=s.pts.map(function(p){var x=X(p.t),y=Y(p.v);allPts.push({x:x,y:y,label:s.name,v:p.v,t:p.t});return x.toFixed(1)+','+y.toFixed(1);}).join(' ');
